@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Copywrk — PPF Lead Assistant Demo</title>
+<style>
+:root{--bg:#08090b;--panel:#111317;--panel2:#17191e;--line:#272a31;--text:#f4f5f7;--muted:#969ba6;--green:#25d366;--accent:#f3f4f6;--bubble:#1d2a22;--blue:#2f80ed}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% 10%,#151821 0,#08090b 42%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:1180px;margin:auto;padding:34px 24px 60px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.brand{font-weight:800;letter-spacing:-.04em;font-size:22px}.brand span{color:#8d93a0}.badge{font-size:12px;color:#b9bec8;border:1px solid var(--line);padding:8px 11px;border-radius:999px;background:#0e1013}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}.card{background:rgba(17,19,23,.88);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.25)}
+.hero{padding:30px 32px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#9ca2ad;margin-bottom:12px}.hero h1{font-size:clamp(34px,5vw,60px);line-height:.98;letter-spacing:-.06em;margin:0 0 16px;max-width:700px}.hero p{color:#a9adb6;max-width:650px;line-height:1.65;margin:0}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.chip{font-size:12px;border:1px solid #30333a;border-radius:999px;padding:8px 10px;color:#c8ccd3;background:#101216}
+.chat-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#252a31,#111318);display:grid;place-items:center;font-weight:800}.status{font-size:12px;color:#7fe5a4}.chat-name{font-weight:700}.chat{padding:20px;min-height:520px;background:linear-gradient(180deg,#0d1012,#0b0d0e)}.msg{max-width:78%;padding:11px 13px;border-radius:15px;margin:9px 0;line-height:1.45;font-size:14px;position:relative}.bot{background:#171d19;border:1px solid #222b25;border-bottom-left-radius:5px}.user{background:#164b2d;margin-left:auto;border-bottom-right-radius:5px}.time{display:block;font-size:10px;color:#8b938e;text-align:right;margin-top:4px}.quick{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}.quick button{border:1px solid #2d5a40;background:#112017;color:#baf0ca;border-radius:999px;padding:9px 12px;cursor:pointer}.quick button:hover{background:#173321}.composer{padding:12px;border-top:1px solid var(--line);display:flex;gap:10px}.composer input{flex:1;background:#0c0e10;border:1px solid #292c32;color:white;border-radius:12px;padding:12px}.send{border:0;border-radius:12px;padding:0 16px;background:#25d366;color:#07100a;font-weight:800;cursor:pointer}
+.side{padding:26px}.side h2{font-size:18px;margin:0 0 8px}.side p{color:var(--muted);font-size:13px;line-height:1.6}.flow{margin-top:20px;display:grid;gap:10px}.step{border:1px solid var(--line);background:#0e1013;border-radius:16px;padding:15px;display:flex;gap:13px;align-items:flex-start}.num{width:27px;height:27px;border-radius:9px;background:#1b1e24;display:grid;place-items:center;font-size:11px;font-weight:800;color:#cfd3da}.step strong{font-size:13px}.step span{display:block;color:#8f949e;font-size:12px;margin-top:4px;line-height:1.4}.lead{margin-top:18px;border:1px solid #2b3d30;background:#0e1711;border-radius:16px;padding:16px}.lead-top{display:flex;justify-content:space-between;align-items:center}.hot{color:#8ff0ad;font-size:11px;font-weight:800;letter-spacing:.1em}.lead-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #202820;font-size:12px}.lead-row:last-child{border-bottom:0}.lead-row span{color:#8f969f}.cta{margin-top:20px;width:100%;border:0;border-radius:14px;padding:14px;background:#f1f2f4;color:#090a0c;font-weight:800;cursor:pointer}.small{font-size:11px;color:#747a84;text-align:center;margin-top:10px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.hero{padding:24px}.chat{min-height:480px}.side{padding:24px}}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="brand">copywrk<span>.</span></div><div class="badge">PPF Lead Conversion Demo</div></div>
+  <div class="grid">
+    <section class="card">
+      <div class="hero">
+        <div class="eyebrow">What the customer experiences</div>
+        <h1>Turn a “How much for PPF?” message into a qualified lead.</h1>
+        <p>The assistant handles the repetitive first conversation, captures the important vehicle details, alerts the team, and follows up when the customer goes quiet.</p>
+        <div class="chips"><div class="chip">Instant response</div><div class="chip">Vehicle qualification</div><div class="chip">Lead capture</div><div class="chip">Follow-up</div></div>
+      </div>
+      <div class="chat-head"><div class="avatar">P</div><div><div class="chat-name">Premium Auto Detail</div><div class="status">● online · automated assistant</div></div></div>
+      <div class="chat" id="chat"></div>
+      <div class="composer"><input id="input" placeholder="Type a message…" /><button class="send" id="send">Send</button></div>
+    </section>
+    <aside class="card side">
+      <div class="eyebrow">Behind the conversation</div>
+      <h2>What your team receives</h2>
+      <p>The customer gets a natural conversation. Your team gets a structured lead instead of another vague enquiry.</p>
+      <div class="flow">
+        <div class="step"><div class="num">01</div><div><strong>Instant response</strong><span>No waiting for someone to notice the message.</span></div></div>
+        <div class="step"><div class="num">02</div><div><strong>Qualification</strong><span>Vehicle, service, coverage and intent are captured.</span></div></div>
+        <div class="step"><div class="num">03</div><div><strong>Team notification</strong><span>A high-intent lead is pushed to the team immediately.</span></div></div>
+        <div class="step"><div class="num">04</div><div><strong>Automatic follow-up</strong><span>If the customer disappears, the system can follow up.</span></div></div>
+      </div>
+      <div class="lead">
+        <div class="lead-top"><strong>New qualified lead</strong><div class="hot">HOT LEAD</div></div>
+        <div class="lead-row"><span>Vehicle</span><b id="vehicle">BMW M3</b></div>
+        <div class="lead-row"><span>Service</span><b id="service">Full-body PPF</b></div>
+        <div class="lead-row"><span>Condition</span><b id="condition">Brand new</b></div>
+        <div class="lead-row"><span>Intent</span><b>Ready for quote</b></div>
+      </div>
+      <button class="cta" onclick="alert('Demo CTA: connect this lead to your real n8n workflow.')">Connect this to my workflow →</button>
+      <div class="small">Demo UI · Replace Premium Auto Detail with the prospect's brand.</div>
+    </aside>
+  </div>
+</div>
+<script>
+const chat=document.getElementById('chat'); const input=document.getElementById('input'); const send=document.getElementById('send');
+let stage=0;
+function add(text,who='bot',quick=[]){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=text+'<span class="time">now</span>';chat.appendChild(d);if(quick.length){const q=document.createElement('div');q.className='quick';quick.forEach(x=>{const b=document.createElement('button');b.textContent=x;b.onclick=()=>{input.value=x;send.click()};q.appendChild(b)});chat.appendChild(q)};chat.scrollTop=chat.scrollHeight}
+add('Hey! 👋 Thanks for reaching out to Premium Auto Detail. I can help get you the right PPF option. What vehicle are you looking to protect?');
+function handle(v){if(!v.trim())return;add(v,'user');input.value='';setTimeout(()=>{
+ if(stage===0){document.getElementById('vehicle').textContent=v;stage=1;add('Nice. Is the vehicle brand new or already being driven?',['Brand new','Already driven'].includes(v)?'bot':'bot',['Brand new','Already driven']);}
+ else if(stage===1){document.getElementById('condition').textContent=v;stage=2;add('Got it. Are you looking for front/high-impact protection or full-body PPF?','bot',['Front / high-impact','Full-body PPF']);}
+ else if(stage===2){document.getElementById('service').textContent=v;stage=3;add('Perfect. What is the best name and number for the quote?','bot');}
+ else {stage=4;add('Thanks! I’ve captured the enquiry. A member of the team can now follow up with the right package and pricing. 👍','bot');}
+},450)}
+send.onclick=()=>handle(input.value);input.addEventListener('keydown',e=>{if(e.key==='Enter')handle(input.value)});
+</script>
+</body></html>
